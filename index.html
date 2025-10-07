@@ -1,201 +1,326 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Barangay Clearance</title>
-<style>
-  @page {
-    size: A4;
-    margin: 20mm;
-  }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Barangay Clearance (A4 Size)</title>
 
-  body {
-    font-family: 'Arial', sans-serif;
-    color: #000;
-    margin: 0;
-    padding: 0;
-  }
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 
-  .container {
-    display: flex;
-    width: 100%;
-  }
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  /* Left sidebar */
-  .sidebar {
-    width: 30%;
-    padding: 10px 15px;
-    border-right: 1px solid #000;
-  }
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 20mm;
+    }
 
-  .sidebar img.logo {
-    width: 100px;
-    margin-bottom: 10px;
-  }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-  .sidebar h3 {
-    margin: 5px 0;
-    font-size: 14px;
-    text-transform: uppercase;
-  }
+    body {
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
 
-  .sidebar p {
-    font-size: 12px;
-    margin: 3px 0;
-  }
+    .a4-container {
+      width: 21cm;
+      height: 29.7cm;
+      background: white;
+      border: 2px solid #000;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+    }
 
-  .sidebar .info-section {
-    margin-top: 10px;
-  }
+    /* LEFT SIDEBAR */
+    .sidebar {
+      width: 7cm;
+      background: #fff;
+      border-right: 2px solid #ddd;
+      padding: 15px;
+      text-align: center;
+    }
 
-  /* Main content */
-  .content {
-    width: 70%;
-    padding: 10px 20px;
-  }
+    .sidebar img.logo {
+      width: 100px;
+      margin: 0 auto 10px;
+      display: block;
+    }
 
-  .content h1 {
-    font-size: 20px;
-    margin: 0;
-    text-transform: uppercase;
-  }
+    .sidebar h2 {
+      font-size: 15px;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
 
-  .content h2 {
-    font-size: 14px;
-    font-weight: normal;
-    margin-bottom: 10px;
-  }
+    .sidebar p {
+      font-size: 11.5px;
+      line-height: 1.3em;
+    }
 
-  .profile {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 15px;
-  }
+    .sidebar .year {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 8px 0;
+    }
 
-  .profile-details {
-    width: 65%;
-    font-size: 12px;
-  }
+    .sidebar .section {
+      margin-top: 12px;
+      text-align: left;
+      border-top: 1px solid #ccc;
+      padding-top: 8px;
+    }
 
-  .profile-photo {
-    width: 30%;
-    border: 1px solid #000;
-    height: 100px;
-    text-align: center;
-    font-size: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    .sidebar .section i {
+      margin-right: 6px;
+      color: #444;
+    }
 
-  hr {
-    border: none;
-    border-top: 1px solid #000;
-    margin: 15px 0;
-  }
+    .sidebar .section h3 {
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
 
-  .letter {
-    font-size: 12px;
-    text-align: justify;
-  }
+    .sidebar .section p {
+      font-size: 11px;
+      margin: 2px 0;
+    }
 
-  .sign-section {
-    margin-top: 40px;
-    text-align: right;
-    font-size: 12px;
-  }
+    .sidebar .contact {
+      font-size: 10px;
+      margin-top: 10px;
+    }
 
-  .sign-line {
-    border-top: 1px solid #000;
-    width: 200px;
-    margin-left: auto;
-  }
+    .sidebar .contact a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+      font-size: 10px;
+      margin: 2px 0;
+    }
 
-  .footer {
-    font-size: 11px;
-    margin-top: 30px;
-  }
-</style>
+    /* RIGHT SIDE: CERTIFICATE */
+    .certificate {
+      flex: 1;
+      padding: 25px 30px;
+    }
+
+    .certificate h1 {
+      font-family: "Dancing Script", cursive;
+      font-size: 32px;
+      text-align: left;
+      margin-bottom: 5px;
+    }
+
+    .certificate .bc-number {
+      float: right;
+      color: red;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .certificate h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 10px;
+    }
+
+    .info-section {
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .info-text {
+      font-size: 12.5px;
+      line-height: 1.4em;
+    }
+
+    .photo-box {
+      border: 1px solid #000;
+      width: 110px;
+      height: 130px;
+      text-align: center;
+      font-size: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .content {
+      font-size: 12.5px;
+      margin-top: 15px;
+      text-align: justify;
+      line-height: 1.5em;
+    }
+
+    .content span {
+      font-weight: 600;
+    }
+
+    .certified {
+      margin-top: 30px;
+      font-size: 12px;
+    }
+
+    .certified .label {
+      border: 1px solid #000;
+      border-radius: 25px;
+      padding: 4px 12px;
+      display: inline-block;
+      margin-bottom: 8px;
+      font-size: 11px;
+    }
+
+    .signature {
+      text-align: right;
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .prepared {
+      margin-top: 25px;
+      font-size: 11.5px;
+      text-align: left;
+    }
+
+    .footer {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 10.5px;
+    }
+
+    .footer button {
+      background: black;
+      color: white;
+      border: none;
+      padding: 4px 8px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 10px;
+    }
+
+    .footer img {
+      width: 35px;
+      vertical-align: middle;
+    }
+
+    .footer p {
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
+  <div class="a4-container">
 
-  <!-- Sidebar -->
-  <div class="sidebar">
-<img src="data:image/png;base64,{{barangay_logo_base64}}" class="logo" alt="Barangay Logo">    <h3>{{barangay_name}}</h3>
-    <p>{{barangay_address}}</p>
-    <p><strong>Current Population:</strong> {{population}}</p>
-    <p><strong>Land Area:</strong> {{land_area}}</p>
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+      <img src="your-logo.png" alt="Logo" class="logo">
+      <h2>Barangay Hall Old Cabalan</h2>
+      <p>Purok 11 Narra Lane<br>Olongapo City, Zambales<br>Philippines 2200</p>
 
-    <div class="info-section">
-      <h4>Punong Barangay</h4>
-      <p>{{barangay_captain}}</p>
-      <h4>Barangay Council</h4>
-      <ul style="margin:0; padding-left:15px; font-size:12px;">
-        <li>{{kagawad1}}</li>
-        <li>{{kagawad2}}</li>
-        <li>{{kagawad3}}</li>
-        <li>{{kagawad4}}</li>
-        <li>{{kagawad5}}</li>
-        <li>{{kagawad6}}</li>
-        <li>{{kagawad7}}</li>
-      </ul>
-      <h4>Secretary</h4>
-      <p>{{barangay_secretary}}</p>
-      <h4>Contact</h4>
-      <p>Email: {{barangay_email}}</p>
-      <p>Phone: {{barangay_phone}}</p>
-    </div>
-  </div>
+      <div class="year">2023</div>
 
-  <!-- Main Content -->
-  <div class="content">
-    <h1>{{document_title}}</h1>
-    <h2>{{purpose}}</h2>
-    <p><strong>{{resident_fullname}}</strong></p>
-    <p>{{address_line}}<br>{{barangay}}, {{city}}, {{province}}, Philippines</p>
-
-    <div class="profile">
-      <div class="profile-details">
-        <p><strong>Birthdate:</strong> {{birth_date}}</p>
-        <p><strong>Age:</strong> {{age}}</p>
-        <p><strong>Gender:</strong> {{gender}}</p>
-        <p><strong>Status:</strong> {{civil_status}}</p>
-        <p><strong>Contact:</strong> {{mobile_number}}</p>
-        <p><strong>HID No.:</strong> {{rbi_id}}</p>
+      <div class="section">
+        <h3><i class="fa-solid fa-users"></i>Population</h3>
+        <p>21,500+ as of 2023</p>
       </div>
-      <div class="profile-photo">
-        <img src="{{photo_url}}" alt="Profile Photo" style="width:100%; height:100%; object-fit:cover;">
+
+      <div class="section">
+        <h3><i class="fa-solid fa-map"></i>Land Area / Divisions</h3>
+        <p>1,200 Hectares<br>14.9008, 120.3215<br>14 Puroks</p>
+      </div>
+
+      <div class="section">
+        <h3><i class="fa-solid fa-user-tie"></i>PB Lester Nadong</h3>
+        <p>Barangay Chairman</p>
+      </div>
+
+      <div class="section">
+        <h3>Barangay Council</h3>
+        <p>Kgd. Rolando Alba Jr.<br>Kgd. Jose Thomas Escalon Jr.<br>Kgd. Gerardo Andrade<br>Kgd. Ana Angeles<br>Kgd. Anjelita Bucos<br>Kgd. Teresita Sese<br>SK Chair: Andy De Leon<br>IPMR: Zensius Liwanag</p>
+      </div>
+
+      <div class="section">
+        <h3>Secretary</h3>
+        <p>Vicente Capalla</p>
+        <h3>Treasurer</h3>
+        <p>Cresencio Fernandez Jr.</p>
+      </div>
+
+      <div class="contact">
+        <a href="mailto:brgyoldcabalan88@gmail.com"><i class="fa-solid fa-envelope"></i> brgyoldcabalan88@gmail.com</a>
+        <a href="#"><i class="fa-solid fa-globe"></i> www.barangayomo.com</a>
+        <a href="#"><i class="fa-solid fa-phone"></i> (047) 223-1629</a>
+        <a href="#"><i class="fa-solid fa-mobile-screen"></i> 0919-086-6448</a>
       </div>
     </div>
 
-    <hr>
+    <!-- CERTIFICATE -->
+    <div class="certificate">
+      <span class="bc-number">BC {{No.}}</span>
+      <h1>Certificate</h1>
+      <h2>{{Type of Clearance}}</h2>
 
-    <div class="letter">
-      <p>To Whom It May Concern:</p>
-      <p>
-        This is to certify that the person described above is a bonafide resident of {{barangay}} for about {{residency_years}} years of residence.  
-        Also, {{gender_pronoun}} requested a clearance and as per records on file in this office, {{gender_pronoun}} is a law-abiding citizen and has no derogatory record on file in this office as of this date.
-      </p>
-      <p>
-        This certificate is issued upon the request of the above-named person at {{barangay}} for {{purpose}}.
-      </p>
-      <p><strong>Date Issued:</strong> {{issued_date}}</p>
-      <p><strong>Valid Until:</strong> {{valid_until}}</p>
-    </div>
+      <div class="info-section">
+        <div class="info-text">
+          <strong>{{Family Name}}, {{First Name}} {{Middle Initial}} {{Suffix}}</strong><br>
+          {{House No.}} {{Street}} ({{Purok}})<br>
+          Brgy Old Cabalan<br>
+          Olongapo City, Zambales<br>
+          Philippines 2200<br><br>
+          Birthdate: {{Birthdate}}<br>
+          Age: {{Age}}<br>
+          Gender: {{Sex}}<br>
+          Status: {{Marital Status}}<br>
+          Contact: {{Contact No.}}<br>
+          HID No.: {{HID No.}}
+        </div>
+        <div class="photo-box">{{Larawan}}</div>
+      </div>
 
-    <div class="sign-section">
-      <p class="sign-line"></p>
-      <p><strong>{{barangay_captain}}</strong><br>Punong Barangay</p>
-    </div>
+      <div class="content">
+        <p><strong>To Whom It May Concern:</strong></p><br>
+        <p>This is to certify that the person described above is a bonafide resident of <span>Barangay Old Cabalan</span> for about {{Residency}} years of residence. Also, {{Gender}} requested for a clearance and as per records on file in this office {{Gender}} is a law-abiding citizen and has <span style="color:red;">NO DEROGATORY RECORD</span> on file in this office as of this date.</p><br>
+        <p>This <span>CERTIFICATE</span> is being issued upon the request of the above person or bearer as a requirement for <span>{{Type of Clearance}}</span> purposes.</p><br>
+        <p>Date Issued: {{Timestamp}}<br>
+        Valid Until: 6 months after date issued</p>
+      </div>
 
-    <div class="footer">
-      <p>Prepared by: {{barangay_secretary}}</p>
+      <div class="certified">
+        <div class="label">CERTIFIED BY</div>
+        <div class="signature">
+          Lester C. Nadong<br>
+          <small>Punong Barangay</small>
+        </div>
+      </div>
+
+      <div class="prepared">
+        <p>Prepared by:</p>
+        <p><strong>Vicente Capalla</strong><br>Brgy. Secretary</p>
+      </div>
+
+      <div class="footer">
+        <p><em>"Let Us Make Old Cabalan D Best"</em></p>
+        <button>KAP</button>
+        <button>KAAYUSAN AKSIYON AT PROGRESO</button><br>
+        <img src="logo.png" alt="I ❤️ Old Cabalan">
+      </div>
     </div>
   </div>
-</div>
-
 </body>
 </html>
